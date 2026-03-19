@@ -8,6 +8,7 @@ const clientId = '7963116672a549afb0c979ec1b3f6796';
 // Dynamically calculates the callback URL based on deployment context (Local or Github Pages)
 // It will look like: http://localhost:5500/ or https://username.github.io/repo/
 const redirectUri = window.location.origin + window.location.pathname;
+console.log("👉 REDIRECT URI BẠN CẦN ĐIỀN VÀO SPOTIFY DASHBOARD LÀ:", redirectUri);
 
 // References
 const authorizeBtn = document.getElementById('spotify-login-btn');
