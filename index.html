@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neo-Brutalist Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="dashboard-grid">
         <!-- Main Area: Time.is Widget -->
@@ -15,12 +17,12 @@
                 <div class="line"></div>
                 <p>HANOI, VN</p>
             </div>
-            
+
             <div class="time-content">
                 <a href="https://time.is/Hanoi" id="time_is_link" rel="nofollow">Thời gian ở Hà Nội:</a>
                 <span id="Hanoi_z40a"></span>
             </div>
-            
+
             <div class="time-footer">
                 <p>DASHBOARD // V2.0</p>
             </div>
@@ -28,29 +30,26 @@
 
         <!-- Sidebar: Spotify Widget -->
         <aside class="panel spotify-panel">
-            <div class="panel-header">
-                <h2>NOW PLAYING</h2>
+            <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; padding-right:12px;">
+                <h2 style="flex-grow:1; margin-left:36px;">PLAYLIST</h2>
+                <button id="toggle-input-btn" class="icon-btn" title="Edit Playlist URL">⚙️</button>
             </div>
             
-            <div class="panel-body">
-                <!-- Login State -->
-                <div id="spotify-login-container">
-                    <button id="spotify-login-btn">CONNECT SPOTIFY</button>
-                    <p class="helper-text" style="text-align:center; margin-top:16px; font-weight:700; color:var(--nord0);">AUTH REQUIRED</p>
+            <div id="playlist-input-area" class="input-area hidden">
+                <label for="spotify-url">Dán Link Spotify / YouTube vào đây:</label>
+                <div class="input-group">
+                    <input type="text" id="spotify-url" placeholder="VD: https://open.spotify.com/... hoặc youtube.com/..." autocomplete="off">
+                    <button id="save-playlist-btn" class="neo-btn">LƯU</button>
                 </div>
-                
-                <!-- Active Player State -->
-                <div id="spotify-now-playing" style="display: none;">
-                    <div class="neo-card">
-                        <div class="neo-art-container">
-                            <img id="album-art" src="" alt="Album Art">
-                        </div>
-                        <div class="neo-track-info">
-                            <div id="track-name">LOADING...</div>
-                            <div id="artist-name">PLEASE WAIT</div>
-                        </div>
-                    </div>
-                </div>
+                <p id="input-error" class="error-text hidden">Link không hợp lệ! Vui lòng copy chuẩn từ ứng dụng Spotify/YouTube.</p>
+            </div>
+
+            <div class="panel-body" style="background-color: var(--nord1);">
+                <iframe id="spotify-iframe" data-testid="embed-iframe" style="border-radius:0; border: 4px solid var(--nord0); box-shadow: 6px 6px 0 var(--nord0);"
+                    src="https://open.spotify.com/embed/playlist/6vF2G1gWpAuBxV7K8s39QY?utm_source=generator&theme=0"
+                    width="100%" height="100%" style="min-height: 350px;" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
             </div>
         </aside>
     </div>
@@ -60,13 +59,14 @@
     <script>
         time_is_widget.init({
             Hanoi_z40a: {
-                time_format: "12hours:minutes", 
+                time_format: "12hours:minutes",
                 template: "TIME"
             }
         });
     </script>
-    
+
     <!-- Custom PKCE Auth & API Logics -->
     <script src="script.js"></script>
 </body>
+
 </html>

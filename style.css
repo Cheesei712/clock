@@ -167,98 +167,107 @@ body {
     align-items: center;
     justify-content: center;
     padding: 24px;
+    background-color: var(--nord1); /* Dark background specifically for the playlist */
 }
 
-#spotify-login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.panel-body iframe {
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
 }
 
-/* Hard brutalist login button */
-#spotify-login-btn {
-    background-color: var(--nord14);
-    color: var(--nord0);
-    border: 4px solid var(--nord0);
-    box-shadow: 6px 6px 0 var(--nord0);
-    padding: 20px 40px;
+/* YouTube Audio Mode */
+iframe.youtube-mode {
+    min-height: 140px !important;
+    height: 140px !important;
+}
+
+/* =========================================================================
+   Inputs & Controls
+   ========================================================================= */
+.icon-btn {
+    background: var(--nord4);
+    border: 3px solid var(--nord0);
+    box-shadow: 3px 3px 0 var(--nord0);
     font-size: 20px;
-    font-weight: 700;
-    font-family: inherit;
+    padding: 6px;
     cursor: pointer;
-    text-transform: uppercase;
     transition: transform 0.1s, box-shadow 0.1s;
 }
-
-#spotify-login-btn:active {
-    transform: translate(6px, 6px);
+.icon-btn:active {
+    transform: translate(3px, 3px);
     box-shadow: 0 0 0 var(--nord0);
 }
 
-/* Currently Playing neo-card */
-#spotify-now-playing {
-    width: 100%;
-    height: 100%;
-}
-
-.neo-card {
-    height: 100%;
+.input-area {
+    padding: 24px;
+    border-bottom: 4px solid var(--nord0);
+    background-color: var(--nord13);
     display: flex;
     flex-direction: column;
-    border: 4px solid var(--nord0);
-    background-color: var(--nord6);
-    box-shadow: 8px 8px 0 var(--nord0);
+    gap: 12px;
 }
 
-.neo-art-container {
-    flex-grow: 1;
-    border-bottom: 4px solid var(--nord0);
-    overflow: hidden;
-    background-color: var(--nord1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-#album-art {
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
-    object-fit: cover;
-    /* Adds a gritty high-contrast look appropriate for brutalism */
-    filter: grayscale(10%) contrast(110%);
-}
-
-#album-art.hidden {
+.input-area.hidden {
     display: none;
 }
 
-.neo-track-info {
-    padding: 24px;
-    background-color: var(--nord6);
-}
-
-#track-name {
-    font-size: 32px;
+.input-area label {
     font-weight: 700;
-    color: var(--nord0);
-    margin-bottom: 8px;
+    font-size: 16px;
     text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: var(--nord0);
 }
 
-#artist-name {
-    font-size: 20px;
+.input-group {
+    display: flex;
+    gap: 12px;
+}
+
+#spotify-url {
+    flex-grow: 1;
+    padding: 12px;
+    border: 4px solid var(--nord0);
+    background-color: var(--nord6);
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 500;
-    color: var(--nord3);
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: var(--nord0);
+    box-shadow: 4px 4px 0 var(--nord0);
+    outline: none;
+    transition: box-shadow 0.1s, transform 0.1s;
+}
+
+#spotify-url:focus {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--nord0);
+}
+
+.neo-btn {
+    background-color: var(--nord14);
+    color: var(--nord0);
+    border: 4px solid var(--nord0);
+    box-shadow: 4px 4px 0 var(--nord0);
+    padding: 0 24px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.neo-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--nord0);
+}
+
+.error-text {
+    color: var(--nord11);
+    font-weight: 700;
+    font-size: 14px;
+}
+.error-text.hidden {
+    display: none;
 }
 
 /* =========================================================================
