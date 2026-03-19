@@ -22,7 +22,7 @@ const albumArtEl = document.getElementById('album-art');
 // 1. Auth Flow Initialization (Step 1 of PKCE)
 // ----------------------------------------------------------------------------
 authorizeBtn.addEventListener('click', async () => {
-    if (!clientId || clientId === '7963116672a549afb0c979ec1b3f6796') {
+    if (!clientId) {
         alert("CRITICAL: You must edit script.js and paste your actual Spotify Client ID for the app to function!");
         return;
     }
