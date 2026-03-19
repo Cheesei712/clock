@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Brutalist Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-grid">
+        <!-- Main Area: Time.is Widget -->
+        <main class="panel time-panel">
+            <div class="time-header">
+                <h2>LOCAL TIME</h2>
+                <div class="line"></div>
+                <p>HANOI, VN</p>
+            </div>
+            
+            <div class="time-content">
+                <a href="https://time.is/Hanoi" id="time_is_link" rel="nofollow">Thời gian ở Hà Nội:</a>
+                <span id="Hanoi_z40a"></span>
+            </div>
+            
+            <div class="time-footer">
+                <p>DASHBOARD // V2.0</p>
+            </div>
+        </main>
+
+        <!-- Sidebar: Spotify Widget -->
+        <aside class="panel spotify-panel">
+            <div class="panel-header">
+                <h2>NOW PLAYING</h2>
+            </div>
+            
+            <div class="panel-body">
+                <!-- Login State -->
+                <div id="spotify-login-container">
+                    <button id="spotify-login-btn">CONNECT SPOTIFY</button>
+                    <p class="helper-text" style="text-align:center; margin-top:16px; font-weight:700; color:var(--nord0);">AUTH REQUIRED</p>
+                </div>
+                
+                <!-- Active Player State -->
+                <div id="spotify-now-playing" style="display: none;">
+                    <div class="neo-card">
+                        <div class="neo-art-container">
+                            <img id="album-art" src="" alt="Album Art">
+                        </div>
+                        <div class="neo-track-info">
+                            <div id="track-name">LOADING...</div>
+                            <div id="artist-name">PLEASE WAIT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Time.is Javascript Injection -->
+    <script src="https://widget.time.is/t.js"></script>
+    <script>
+        time_is_widget.init({
+            Hanoi_z40a: {
+                time_format: "12hours:minutes", 
+                template: "TIME"
+            }
+        });
+    </script>
+    
+    <!-- Custom PKCE Auth & API Logics -->
+    <script src="script.js"></script>
+</body>
+</html>
